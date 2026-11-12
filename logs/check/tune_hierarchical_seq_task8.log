@@ -1,0 +1,18 @@
+==========================================
+TUNE hier  task 8: form / noenc  tasc=feat
+  node=  job=_8
+  time left=?  -> tuning budget=none min
+  dry_run=1  smoke=0
+==========================================
+  [trial   0] COMPLETE auc=0.6000  epochs=8 stop=patience  | best 0.6000 (trial 0) | finished 1/30
+  [trial   1] COMPLETE auc=0.6000  epochs=8 stop=patience  | best 0.6000 (trial 0) | finished 2/30
+
+  CHECK hier_noenc_form_tasc   (budget: 30 trials x 40 epochs, patience 6, study patience 10 after 15)
+    [PASS] versions         python 3.12.13, torch 2.11.0+cu130, optuna 4.8.0, GPU visible: no (expected on a login node)
+    [PASS] PTB-XL folder    /home/yv33n/data/ptbxl
+    [PASS] beat cache       /home/yv33n/data/ptbxl/ptbxl_form_beats.pkl (1.5 GB, 8890 recordings, settings match)
+    [PASS] storage          sqlite works in /cluster/pixstor/home/yv33n/attention-faithfulness-AAAI/tune_results/
+    [PASS] saved study      none yet -> tune_results/hier_noenc_form_tasc.db is created on the first run
+    [PASS] model            forward+backward on CPU OK, output (2, 5), 656,327 params (TaSc 256)
+    [PASS] optuna machinery trial early stopping -> patience after 8 epochs (expected patience); best cell saved=True; study stop check=not yet
+  -> ALL CHECKS PASSED

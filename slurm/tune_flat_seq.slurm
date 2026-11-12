@@ -1,10 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=ekg_tune_flat
 #SBATCH --ntasks=1
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:A100:1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=64G
+#SBATCH --partition=gpu_requeue
+#SBATCH --gres=gpu:1
+#SBATCH --exclude=g[021-028]
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=24G
 #SBATCH --time=01:15:00
 #SBATCH --array=0-8
 #SBATCH --output=logs/ekg_tune_flat_%A_%a.out
@@ -43,7 +44,7 @@ export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
 export ECG_DATA_ROOT=${ECG_DATA_ROOT:-/home/yv33n/data}
 export ECG_USE_FILTERED=1
-export ECG_NUM_WORKERS=${ECG_NUM_WORKERS:-4}
+export ECG_NUM_WORKERS=${ECG_NUM_WORKERS:-3}
 
 # --- search budget (FAST preset; every value can be overridden at submit time) ---
 export ECG_TUNE_EPOCHS=${ECG_TUNE_EPOCHS:-40}            # max epochs per trial
